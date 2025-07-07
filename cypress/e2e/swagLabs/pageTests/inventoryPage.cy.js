@@ -16,6 +16,24 @@ describe('Inventory Page Tests', () => {
         onInventoryPage.verifyProductItemCount(6);
     });
 
+    it('should verify the filter options are visible', () => {
+        onInventoryPage.verifyFilterOptionsVisible();
+    });
+    it('should filter products by name (A to Z)', () => {
+        onInventoryPage.filterProductsByName('az'); 
+        onInventoryPage.verifyProductOrder(['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt', 'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie', 'Test.allTheThings() T-Shirt (Red)']);
+    });
+
+    it('should filter products by name (Z to A)', () => {
+        onInventoryPage.filterProductsByName('za'); 
+        onInventoryPage.verifyProductOrder(['Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Onesie', 'Sauce Labs Fleece Jacket', 'Sauce Labs Bolt T-Shirt', 'Sauce Labs Bike Light', 'Sauce Labs Backpack']);
+    });
+
+    it('should filter products by name (A to Z)', () => {
+        onInventoryPage.filterProductsByName('az'); 
+        onInventoryPage.verifyProductOrder(['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt', 'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie', 'Test.allTheThings() T-Shirt (Red)']);
+    });
+
     it('should verify a specific product is visible', () => {
         onInventoryPage.verifyProductItemVisible('Sauce Labs Backpack');
     });

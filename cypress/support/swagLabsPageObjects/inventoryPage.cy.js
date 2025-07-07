@@ -40,8 +40,28 @@ export class InventoryPage {
         cy.get('.shopping_cart_badge').should('have.text', count);
     }
 
-    verifyCartItem(productName) {
-        cy.get('.cart_item').contains(productName).should('be.visible');
+    verifyFilterOptionsVisible() {
+        cy.get('.product_sort_container').should('be.visible');
+    }
+
+    filterProductsByName(order) {
+        cy.get('.product_sort_container').select(order);       
+    }
+    
+    filterProductsByPrice(order) {
+        cy.get('.product_sort_container').select(order);
+    }
+
+    verifyProductOrder(expectedOrder) {
+        cy.get('.inventory_item_name').then($items => {
+            const actualOrder = $items.map((i, el) => Cypress.$(el).text()).get();
+            expect(actualOrder).to.deep.eq(expectedOrder);
+        });
+    }
+
+    verifyCartItem(itemName) {
+        cy.get('.cart_item').should('be.visible');
+        cy.get('.cart_item').contains(itemName).should('be.visible');
     }
 
     removeFromCart(productName) {

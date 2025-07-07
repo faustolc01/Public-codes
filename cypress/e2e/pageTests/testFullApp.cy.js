@@ -1,13 +1,13 @@
 /// <reference types="cypress" />
 
-import { onAddCustomerPage } from '../support/pageObjects/addCustomerPage'
-import { onCustomerPage } from '../support/pageObjects/customerLoginPage'
+import { onAddCustomerPage } from '../../support/pageObjects/addCustomerPage'
+import { onCustomerPage } from '../../support/pageObjects/customerLoginPage'
 
-import { onBankManagerLoginPage } from '../support/pageObjects/managerPage'
-import { onOpenAccountPage } from '../support/pageObjects/openAccountPage'
-import { onShowCustomersPage } from '../support/pageObjects/showCustomersPage'
+import { onBankManagerLoginPage } from '../../support/pageObjects/managerPage'
+import { onOpenAccountPage } from '../../support/pageObjects/openAccountPage'
+import { onShowCustomersPage } from '../../support/pageObjects/showCustomersPage'
 
-import { onHomePage } from '../support/pageObjects/homePage'
+import { onHomePage } from '../../support/pageObjects/homePage'
 
 describe('Home Page', () => {
     
